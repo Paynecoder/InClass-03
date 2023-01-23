@@ -6,7 +6,59 @@
   min-height: 100vh;
 }
 
-.main--data--wrapper {
+.maindatawrapper {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.about {
+  font-family: 'Poppins';
+  font-size: 35px;
+  font-weight: 700;
+  position: absolute;
+  top: 15%;
+  text-align: center;
+}
+
+.about:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.businesswrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 300px;
+}
+
+.businesstitle {
+  font-family: 'Poppins';
+  font-weight: 600;
+  margin-bottom: 50px
+}
+
+.computingwrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 300px;
+}
+
+.computingtitle {
+  font-family: 'Poppins';
+  font-weight: 600;
+  margin-bottom: 50px
+}
+
+.programs{
+  font-family: 'Poppins';
+  font-weight: 600;
 }

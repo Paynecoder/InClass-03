@@ -10,7 +10,6 @@ import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  console.log(data);
   const [information, setInformation] = useState([...data]);
 
   return (
@@ -23,36 +22,29 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Link href="about">About</Link>
-
-        <div className="main--data--wrapper">
-          {information &&
-            information.map((info, index) => {
-              if (info.department.toLowerCase() === "business") {
-                return (
-                  <Card
-                    key={index}
-                    degree={info.degree}
-                    color="red"
-                    font="50px"
-                  />
-                );
-              }
-            })}
-
-          {information &&
-            information.map((info, index) => {
-              if (info.department.toLowerCase() === "computing") {
-                return (
-                  <Card
-                    key={index}
-                    degree={info.degree}
-                    color="blue"
-                    font="50px"
-                  />
-                );
-              }
-            })}
+        <Link href="about" className={styles.about}>
+          Employees
+        </Link>
+        <h1 className={styles.programs}>Programs</h1>
+        <div className={styles.maindatawrapper}>
+          <div className={styles.businesswrapper}>
+            <h2 className={styles.businesstitle}>Business</h2>
+            {information &&
+              information.map((info, index) => {
+                if (info.department.toLowerCase() === "business") {
+                  return <Card key={index} degree={info.degree} />;
+                }
+              })}
+          </div>
+          <div className={styles.computingwrapper}>
+            <h2 className={styles.computingtitle}>Computing</h2>
+            {information &&
+              information.map((info, index) => {
+                if (info.department.toLowerCase() === "computing") {
+                  return <Card key={index} degree={info.degree} />;
+                }
+              })}
+          </div>
         </div>
       </main>
     </>
