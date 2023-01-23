@@ -4,9 +4,8 @@ import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
 import data from "../../data/education.json";
 import { useState } from "react";
-import Card from '../../components/Card'
-import Link from 'next/link'
-
+import Card from "../../components/Card";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,19 +24,36 @@ export default function Home() {
 
       <main className={styles.main}>
         <Link href="about">About</Link>
-        {information &&
-          information.map((info, index) => {
-            if (info.department.toLowerCase() === "business") {
-              return <Card key={index} degree={info.degree} color="red" font="10px"/>;
-            }
-          })}
 
-        {information &&
-          information.map((info, index) => {
-            if (info.department.toLowerCase() === "computing") {
-              return  <Card key={index} degree={info.degree} color="blue" font="50px"/>
-            }
-          })}
+        <div className="main--data--wrapper">
+          {information &&
+            information.map((info, index) => {
+              if (info.department.toLowerCase() === "business") {
+                return (
+                  <Card
+                    key={index}
+                    degree={info.degree}
+                    color="red"
+                    font="50px"
+                  />
+                );
+              }
+            })}
+
+          {information &&
+            information.map((info, index) => {
+              if (info.department.toLowerCase() === "computing") {
+                return (
+                  <Card
+                    key={index}
+                    degree={info.degree}
+                    color="blue"
+                    font="50px"
+                  />
+                );
+              }
+            })}
+        </div>
       </main>
     </>
   );
